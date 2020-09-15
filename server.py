@@ -40,11 +40,11 @@ class ClientListener(Thread):
         with open(filename, 'wb') as f:
             while True:
                 data = self.sock.recv(BUFFER_SIZE)
-                print(data)
                 if data:
                     f.write(data)
                 else:
                     self.sock.close()
+                    print("Connection closed!")
                     return
 
 def main():
